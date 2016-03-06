@@ -39,7 +39,6 @@ public class ScrapeWeb {
     		String ICD10 = null;
 //    		pg = pg.replaceAll("[\t\n\r]", "");
 //    		System.out.println(pg);
-    		System.out.println(pg.contains("ICD-10-PCS code "));
     		Pattern p = Pattern.compile(".*ICD-10-PCS code ([^\\s]+)\".*",Pattern.DOTALL);
     		
     		Matcher m = p.matcher(pg);
@@ -52,7 +51,7 @@ public class ScrapeWeb {
     public static void main(String[] args) throws IOException {
     	String addr = "http://www.icd10data.com/Convert/";
     	String ICD9 = "51.24";
-    	String pg = getHTML("http://www.icd10data.com/Convert/51.24");
+    	String pg = getHTML(addr+ICD9);
     	String ICD10 = getICD10(pg);
     	System.out.println(ICD10);
     }
